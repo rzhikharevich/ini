@@ -4,32 +4,34 @@ An INI parser.
 
 ## Example
 
-	void handleEntry(
-		void *context,
-		INIStringSlice section,
-		INIStringSlice key,
-		INIStringSlice value
-	) {
-		// ...
-	}
+```c
+void handleEntry(
+	void *context,
+	INIStringSlice section,
+	INIStringSlice key,
+	INIStringSlice value
+) {
+	// ...
+}
 
-	void errorHandler(
-		void *context,
-		INILocation location,
-		const char *msg
-	) {
-		// ...
-	}
+void errorHandler(
+	void *context,
+	INILocation location,
+	const char *msg
+) {
+	// ...
+}
 
-	INIStringSlice input = {input_str, strlen(input_str)};
+INIStringSlice input = {input_str, strlen(input_str)};
 
-	bool ok = INIParse(
-		input,
-		entryHandlerCtx,
-		handleEntry,
-		errorHandlerCtx,
-		handleError
-	);
+bool ok = INIParse(
+	input,
+	entryHandlerCtx,
+	handleEntry,
+	errorHandlerCtx,
+	handleError
+);
+```
 
 ## Todo
 
